@@ -1,0 +1,13 @@
+.tc {
+	display: inline-block;
+/*	height: 15rem;
+	width: 15rem;*/
+	margin: 0.5rem;
+	padding: 1rem;
+	border: solid 0.5px black;
+	box-shadow: 5px 10px #888888;
+}
+
+.App .MuiPaper-elevation1 {
+	box-shadow: 5px 10px #888888;
+}
