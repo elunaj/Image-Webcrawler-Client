@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, AppBar, Toolbar, Typography, Button } from '@material-ui/core';
-// import Logo from '../Images/logo.svg';
+import Logo from '../Images/logo.svg';
 import './Navigation.css';
 
 
@@ -19,16 +19,11 @@ const Navigation = ( ) => {
 			  	>
 			  	<img 
 			  		className="marginRight"
-			  		// src={Logo} 
+			  		src={Logo} 
 	                height="50" 
 	                width="50"
 	                alt="Logo"
 	                  />  
-			    <Typography 
-			    	className="grid-items"
-			    	>
-			    ImageCrawler
-			    </Typography>
 
 			    </Grid>
 
@@ -37,17 +32,17 @@ const Navigation = ( ) => {
 					direction="row"
 					alignItems = 'center'
 					justify="flex-end"
-			    	>	
-					 <Typography 
-					 	id="email">
-					 	
-			    	</Typography>
+			    	>
 
-					 <Typography 
-					 	style={{'marginLeft': '5px'}}
-				    	variant="h6">
-				      ||
-			    	</Typography>
+				   <Typography 
+				    	className="grid-items"
+				    	style={{'color': '#E3242B',
+                      	'fontSize': '1.1rem'
+                      	}}
+				    	>
+				    Image-Crawler
+				    </Typography>
+				
 
 			    </Grid>
 			  </Toolbar>

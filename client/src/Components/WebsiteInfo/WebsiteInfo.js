@@ -1,6 +1,5 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
-// import './HomeView.css';
 
 
 const WebsiteInfo = () => {
@@ -10,20 +9,20 @@ const WebsiteInfo = () => {
 
 			 <Typography 
 			 	style={{
-			 		'marginTop': '2.5rem',
+			 		'marginTop': '2rem',
 			 		'display': 'block'
 			 	}}
-			 	variant="h3">Text Text Text Text Text Text Text Text Text
+			 	variant="h3">Search & Download Images Below:
 			 	</Typography>
 
 			 <Typography 
 			 	style={{
-			 		'margin': '0 3rem'
+			 		'marginTop': '0.5rem',
+			 		'margin': '0.5 0.5rem'
 			 	}}
 			 	variant="subtitle1">
-			 	Text Text Text Text Text Text Text Text Text Text Text Text
-			 	Text Text Text Text Text Text Text Text Text Text Text Text
-			 	Text Text Text Text Text Text Text Text Text Text Text Text
+			 	Enter a valid web address to find all of the
+			 	downloadable images on a web page
 			 	</Typography>
 					 
 			</div>

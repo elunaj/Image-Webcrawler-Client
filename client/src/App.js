@@ -3,6 +3,8 @@ import Navigation from './Components/Navigation/Navigation.js';
 import UserSearch from './Components/UserSearch/UserSearch.js';
 import DisplayImages from './Components/DisplayImages/DisplayImages.js';
 import WebsiteInfo from './Components/WebsiteInfo/WebsiteInfo.js';
+import ErrorDisplay from './Components/ErrorDisplay/ErrorDisplay.js';
+import Footer from './Components/Footer/Footer.js';
 import './App.css';
 
 class App extends React.Component {
@@ -11,13 +13,18 @@ class App extends React.Component {
     this.state = {
       userInput: "",
       userImages: [],
-      userImagesFetchStatus: false
+      userImagesFetchStatus: false,
+      searchErrorStatus: false,
+      searchError: "",
+      downloadErrorStatus: false,
+      downloadError: "",
+      loading: false
     }
   }
 
   handleUserInput = event => {
 
-    console.log(event.target.value);
+    event.preventDefault();
 
     this.setState({
       userInput: event.target.value
@@ -28,6 +35,10 @@ class App extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
 
+     this.setState({
+        loading: true
+      })
+
     fetch("http://localhost:8080/search?url=" + this.state.userInput, {
       method: 'GET',
       headers: {
@@ -36,21 +47,27 @@ class App extends React.Component {
       },
     })
     .then(res => res.json())
-    .then(data => {
-      console.log(data);
-      return data;
-    })
     .then(images => {
       this.setState({
         userImages: [...images],
-        userImagesFetchStatus: true
+        userImagesFetchStatus: true,
+        searchErrorStatus: false,
+        searchError: "",
+        loading: false
       })
     })
-    .catch(err => console.log(err));
+    .catch(err => {
+
+      this.setState({
+        searchErrorStatus: true,
+        searchError: "Please enter a valid web address.",
+        loading: false
+      })
+
+    });
   }
 
   downloadImage = link => {
-
     console.log(link)
     fetch("http://localhost:8080/download?imageLink=" + link, {
       method: 'GET',
@@ -59,28 +76,63 @@ class App extends React.Component {
       },
     })
     .then(response => response.blob())
-    .then()
-    .catch(err => console.log(err))
+    .then(image => {
+
+      if (image.size > 0) {
+        const url = window.URL.createObjectURL(new Blob([image]));
+        const link = document.createElement('a');
+        link.href = url;
+        let str = image.type;
+        let n = str.lastIndexOf("/");
+        let result = str.substring(n + 1);
+        link.setAttribute('download', 'image.' + result);
+        document.body.appendChild(link);
+        link.click();
+
+        this.setState({
+          downloadErrorStatus: false,
+          downloadError: ""
+        });
+      } else {
+        this.setState({
+          downloadErrorStatus: true,
+          downloadError: "Download error. Please try again."
+        });
+      }
+  
+    })
+    .catch(err => {
+
+    })
 
   }
 
   render() {
 
     return(
-        <div className="App">
-          <Navigation />
-            <div className="Body">
-              <WebsiteInfo />
-              <UserSearch
-                handleSubmit={ this.handleSubmit }
-                handleUserInput={ this.handleUserInput } />
-              <DisplayImages
-                userImages={ this.state.userImages } 
-                userImagesFetchStatus= {this.state.userImagesFetchStatus }
-                downloadImage={ this.downloadImage }
-                />
+        <div>
+          <div className="App">
+            <Navigation />
+              <div className="Body">
+                <WebsiteInfo />
+                <UserSearch
+                  handleSubmit={ this.handleSubmit }
+                  handleUserInput={ this.handleUserInput } />
+                <ErrorDisplay 
+                  searchErrorStatus={ this.state.searchErrorStatus }
+                  searchError={ this.state.searchError }
+                  downloadErrorStatus={ this.state.downloadErrorStatus }
+                  downloadError={ this.state.downloadError } />
+                <DisplayImages
+                  loading={ this.state.loading }
+                  userImages={ this.state.userImages } 
+                  userImagesFetchStatus= {this.state.userImagesFetchStatus }
+                  downloadImage={ this.downloadImage }
+                  />
+              </div>
             </div>
-        </div>
+            <Footer />
+          </div>
       );
    }
 

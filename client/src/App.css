@@ -1,18 +1,10 @@
 .App {
   text-align: center;
+  min-height: 82.5vh;
 }
 
 .Body {
-  margin: 4rem;
-}
-
-.App a img:hover {
-  background-color: #D3D3D3;
-}
-
-.App a img {
-  margin-right: 20px;
-  margin-left: 20px;
+  margin: 2rem;
 }
 
 .App .MuiAppBar-colorPrimary {
@@ -43,26 +35,8 @@ transition: black;
   background-color: black;
 }
 
-
-.Display-track {
-    display: inline-block;
-    padding: 5px;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
 .textfield {
-  width: 20rem;
-}
-
-#email {
-  color: #080808;
-}
-
-@media (max-width: 520px) {
-  #email {
-    
-  }
+  width: 25rem;
 }
           
 
@@ -79,20 +53,8 @@ transition: black;
     font-size: 1.7rem;
   }
 
-  .main .makeStyles-root-293 {
-      max-width: 200px;
-      min-width: 200px;
-      margin-top: 1.5rem;
-      margin-bottom: 1.5rem;
-  }
-
-  .main .textfield {
-    width: 18rem;
-  }
-
-  img {
-    width: 150;
-    height: 150;
+  .textfield {
+    width: 15rem;
   }
 
   header .MuiButton-label {
@@ -100,8 +62,8 @@ transition: black;
   }
 
   .tc {
-     height: 75%;
-      width: 75%;
+    height: 75%;
+    width: 75%;
   }
 }
 
@@ -127,7 +89,10 @@ transition: black;
   .App .MuiToolbar-root .MuiButtonBase-root {
     min-width: 55px;
   }
-  
+
+  .main .textfield {
+    width: 12rem;
+  }
 
   .tc {
       height: 75%;
@@ -150,14 +115,8 @@ transition: black;
     font-size: 0.60rem;
   }
 
-  .App .marginRight {
-    height: 2.2rem;
-    width: 2.2rem;
-  }
-
-  .App .MuiToolbar-gutters {
-    padding-left: 6px;
-    padding-right: 6px;
+  .textfield {
+    width: 14rem;
   }
 
 }
@@ -170,6 +129,10 @@ transition: black;
 
   .App .MuiButton-text {
     padding: 3px 4px;
+  }
+
+  .textfield {
+    width: 14rem;
   }
 }
 

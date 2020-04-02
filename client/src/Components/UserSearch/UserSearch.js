@@ -1,15 +1,17 @@
 import React from 'react';
-import { TextField, Button } from '@material-ui/core';
+import { TextField, Button, FormHelperText } from '@material-ui/core';
 
-const UserSearch = ({ handleSubmit, handleUserInput }) => {
+const UserSearch = ({ handleSubmit, handleUserInput, 
+  searchErrorStatus, downloadErrorStatus, searchError, downloadError }) => {
   return (
 
-    <form 
+    <div 
       style={{
         'marginTop': '3rem',
         'marginBottom': '3rem'
       }}
       noValidate autoComplete="off">
+
         <TextField id="outlined-basic"
           className="textfield"
           label="Enter web address" 
@@ -28,7 +30,8 @@ const UserSearch = ({ handleSubmit, handleUserInput }) => {
           color="primary"
           >Search
         </Button>
-    </form>
+
+    </div>
 
   );
 }
