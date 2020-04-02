@@ -1,0 +1,23 @@
+.Footer a img:hover {
+	background-color: #D3D3D3;
+}
+
+.Footer a img {
+	background-color: white;
+}
+
+.Footer a img {
+  	margin-right: 20px;
+  	margin-left: 20px;
+}
+
+.Footer {
+	position: relative;
+	flex: 1 0 auto;
+  	padding: 8px;
+  	margin: 1.5rem;
+  	flex-shrink: 0;
+  	text-align: center;
+  	background-color: black;
+  	color: white;
+}
