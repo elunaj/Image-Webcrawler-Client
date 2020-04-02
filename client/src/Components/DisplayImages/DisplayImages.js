@@ -1,10 +1,11 @@
 import React from "react";
 import { Card, CardActionArea, CardActions, CardContent, 
   CardMedia, Button, Grid, Typography } from '@material-ui/core';
+import Spinner from '../Spinner/Spinner.js';
 import './DisplayImages.css';
 
-const DisplayImages = ( {userImages, userImagesFetchStatus, downloadImage} ) => {
-  
+const DisplayImages = ( {userImages, userImagesFetchStatus, downloadImage, loading} ) => {
+  console.log(loading)
   return (
     <div>
         {userImagesFetchStatus 
@@ -12,6 +13,7 @@ const DisplayImages = ( {userImages, userImagesFetchStatus, downloadImage} ) => 
           ? (userImages.map( (image, id) => {
               
                 return (
+
                   <Card className="tc" key={id}>
                     <CardActions>
                       <Grid 
@@ -39,7 +41,12 @@ const DisplayImages = ( {userImages, userImagesFetchStatus, downloadImage} ) => 
               })
             )
 
-          : null }
+          : loading
+
+          ? (
+              <Spinner/>
+    
+            ) : null }
         
       </div>
     );
