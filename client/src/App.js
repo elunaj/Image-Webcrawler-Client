@@ -1,6 +1,9 @@
 import React from 'react';
+import Navigation from './Components/Navigation/Navigation.js';
 import UserSearch from './Components/UserSearch/UserSearch.js';
 import DisplayImages from './Components/DisplayImages/DisplayImages.js';
+import WebsiteInfo from './Components/WebsiteInfo/WebsiteInfo.js';
+import './App.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -46,20 +49,40 @@ class App extends React.Component {
     .catch(err => console.log(err));
   }
 
+  downloadImage = link => {
+
+    console.log(link)
+    fetch("http://localhost:8080/download?imageLink=" + link, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'image/jpeg'
+      },
+    })
+    .then(response => response.blob())
+    .then()
+    .catch(err => console.log(err))
+
+  }
 
   render() {
+
     return(
-        <div>
-          <UserSearch
-            handleSubmit={ this.handleSubmit }
-            handleUserInput={ this.handleUserInput } />
-          <DisplayImages
-            userImages={ this.state.userImages } 
-            userImagesFetchStatus= {this.state.userImagesFetchStatus }
-            />
+        <div className="App">
+          <Navigation />
+            <div className="Body">
+              <WebsiteInfo />
+              <UserSearch
+                handleSubmit={ this.handleSubmit }
+                handleUserInput={ this.handleUserInput } />
+              <DisplayImages
+                userImages={ this.state.userImages } 
+                userImagesFetchStatus= {this.state.userImagesFetchStatus }
+                downloadImage={ this.downloadImage }
+                />
+            </div>
         </div>
-        );
-    }
+      );
+   }
 
 }
 

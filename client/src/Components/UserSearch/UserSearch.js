@@ -1,29 +1,35 @@
-import React from "react";
-import { Form, Button } from 'react-bootstrap';
+import React from 'react';
+import { TextField, Button } from '@material-ui/core';
 
-const UserSearch = ( {handleSubmit, handleUserInput} ) => {
-  
+const UserSearch = ({ handleSubmit, handleUserInput }) => {
   return (
-    <div>
-      <Form>
-        <Form.Group controlId="formInput">
-          <Form.Label>Web Search</Form.Label>
-          <Form.Control 
-            type="text" 
-            placeholder="web address"
-            onChange={ handleUserInput }  />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
-        </Form.Group>
-        <Button 
-          variant="primary" 
-          type="submit"
-          onClick={ handleSubmit }>
-          Submit
+
+    <form 
+      style={{
+        'marginTop': '3rem',
+        'marginBottom': '3rem'
+      }}
+      noValidate autoComplete="off">
+        <TextField id="outlined-basic"
+          className="textfield"
+          label="Enter web address" 
+          variant="filled" 
+          onChange={ handleUserInput } 
+        />
+        <Button
+          style={{
+            height: '3rem',
+            'marginLeft': '2px',
+            'marginTop': '3px',
+            'color:': 'black'
+          }}
+          variant="contained" 
+          onClick={ handleSubmit }
+          color="primary"
+          >Search
         </Button>
-      </Form>
-    </div>
+    </form>
+
   );
 }
 
