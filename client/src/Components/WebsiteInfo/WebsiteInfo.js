@@ -1,11 +1,12 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
+import './WebsiteInfo.css';
 
 
 const WebsiteInfo = () => {
 
 		return (
-			<div className="main">
+			<div className="websiteInfo">
 
 			 <Typography 
 			 	style={{

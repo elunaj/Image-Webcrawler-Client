@@ -1,0 +1,24 @@
+.websiteInfo {
+	display: inline-block;
+	margin: 0.5rem;
+	padding: 3rem;
+	border: solid 0.5px black;
+	box-shadow: -2px 0px 17px -6px #888888;
+}
+
+
+@media (max-width: 420px) {
+
+	.websiteInfo {
+		padding: 2rem;
+	}
+
+}
+
+@media (max-width: 360px) {
+
+	.websiteInfo {
+		padding: 0.2rem;
+	}
+
+}

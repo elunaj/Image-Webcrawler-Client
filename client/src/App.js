@@ -22,6 +22,7 @@ class App extends React.Component {
     }
   }
 
+  // handles user text input
   handleUserInput = event => {
 
     event.preventDefault();
@@ -32,6 +33,7 @@ class App extends React.Component {
 
   }
 
+  // handles user web address submission
   handleSubmit = event => {
     event.preventDefault();
 
@@ -39,11 +41,13 @@ class App extends React.Component {
         loading: true
       })
 
-    fetch("http://localhost:8080/search?url=" + this.state.userInput, {
+    fetch("https://image-crawler-server.herokuapp.com/search?url=" + this.state.userInput, {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+
       },
     })
     .then(res => res.json())
@@ -67,9 +71,9 @@ class App extends React.Component {
     });
   }
 
+  // handles user image click
   downloadImage = link => {
-    console.log(link)
-    fetch("http://localhost:8080/download?imageLink=" + link, {
+    fetch("https://image-crawler-server.herokuapp.com/download?imageLink=" + link, {
       method: 'GET',
       headers: {
         'Content-Type': 'image/jpeg'
@@ -78,6 +82,7 @@ class App extends React.Component {
     .then(response => response.blob())
     .then(image => {
 
+      // if response from back-end has data trigger download
       if (image.size > 0) {
         const url = window.URL.createObjectURL(new Blob([image]));
         const link = document.createElement('a');

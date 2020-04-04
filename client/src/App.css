@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  min-height: 82.5vh;
+  min-height: 100vh;
 }
 
 .Body {
@@ -107,6 +107,15 @@ transition: black;
 
 
 @media (max-width: 400px) {
+
+  .Body {
+    margin: 1rem;
+  }
+
+  .websiteInfo {
+    padding: 1.5rem;
+  }
+
   header .MuiTypography-root {
     font-size: .75rem;
   }
@@ -122,6 +131,14 @@ transition: black;
 }
 
 @media (max-width: 360px) {
+
+  .Body {
+    margin: 0.5rem;
+  }
+
+  .websiteInfo {
+    padding: 1rem;
+  }
 
   .main .MuiTypography-h4 {
     font-size: 1.2rem;

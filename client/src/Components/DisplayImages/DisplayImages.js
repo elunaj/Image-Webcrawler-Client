@@ -5,7 +5,7 @@ import Spinner from '../Spinner/Spinner.js';
 import './DisplayImages.css';
 
 const DisplayImages = ( {userImages, userImagesFetchStatus, downloadImage, loading} ) => {
-  console.log(loading)
+
   return (
     <div>
         {userImagesFetchStatus 
@@ -29,9 +29,9 @@ const DisplayImages = ( {userImages, userImagesFetchStatus, downloadImage, loadi
                         <CardMedia
                           component="img"
                           alt="Contemplative Reptile"
-                          image={image.link}
+                          image={image.imageLink}
                           title="Contemplative Reptile"
-                          onClick={() => downloadImage(image.link)}
+                          onClick={() => downloadImage(image.imageLink)}
                         />
             
                       </CardActionArea>
