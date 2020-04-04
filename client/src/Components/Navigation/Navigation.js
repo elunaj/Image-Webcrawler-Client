@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, AppBar, Toolbar, Typography, Button } from '@material-ui/core';
+import { Grid, AppBar, Toolbar, Typography } from '@material-ui/core';
 import Logo from '../Images/logo.svg';
 import './Navigation.css';
 

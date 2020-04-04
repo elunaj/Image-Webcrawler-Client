@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Grid, FormHelperText } from '@material-ui/core';
+import { Grid, FormHelperText } from '@material-ui/core';
 
 const ErrorDisplay = ( {searchErrorStatus, searchError,
 	downloadErrorStatus, downloadError }) => {

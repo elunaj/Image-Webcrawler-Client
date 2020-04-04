@@ -52,21 +52,34 @@ class App extends React.Component {
     })
     .then(res => res.json())
     .then(images => {
-      this.setState({
-        userImages: [...images],
-        userImagesFetchStatus: true,
-        searchErrorStatus: false,
-        searchError: "",
-        loading: false
-      })
+
+       if (images.length === 0) {
+           this.setState({
+            searchErrorStatus: true,
+            searchError: "Please enter a valid web address.",
+            loading: false
+          });
+
+       } else {
+
+           this.setState({
+            userImages: [...images],
+            userImagesFetchStatus: true,
+            searchErrorStatus: false,
+            searchError: "",
+            loading: false
+          });
+
+       }
+   
     })
     .catch(err => {
 
-      this.setState({
-        searchErrorStatus: true,
-        searchError: "Please enter a valid web address.",
-        loading: false
-      })
+         this.setState({
+            searchErrorStatus: true,
+            searchError: "Please enter a valid web address.",
+            loading: false
+          });
 
     });
   }
@@ -107,6 +120,11 @@ class App extends React.Component {
   
     })
     .catch(err => {
+
+        this.setState({
+          downloadErrorStatus: true,
+          downloadError: "Download error. Please try again."
+        });
 
     })
 

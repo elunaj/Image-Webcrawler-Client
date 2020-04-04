@@ -1,6 +1,6 @@
 import React from "react";
-import { Card, CardActionArea, CardActions, CardContent, 
-  CardMedia, Button, Grid, Typography } from '@material-ui/core';
+import { Card, CardActionArea, CardActions,  
+  CardMedia, Grid } from '@material-ui/core';
 import Spinner from '../Spinner/Spinner.js';
 import './DisplayImages.css';
 
