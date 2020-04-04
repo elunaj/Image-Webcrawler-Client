@@ -28,9 +28,9 @@ const DisplayImages = ( {userImages, userImagesFetchStatus, downloadImage, loadi
                         <CardActionArea>
                         <CardMedia
                           component="img"
-                          alt="Contemplative Reptile"
+                          alt="downloadable image"
                           image={image.imageLink}
-                          title="Contemplative Reptile"
+                          title="image"
                           onClick={() => downloadImage(image.imageLink)}
                         />
             

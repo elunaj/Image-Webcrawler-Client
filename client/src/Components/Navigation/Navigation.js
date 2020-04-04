@@ -37,7 +37,7 @@ const Navigation = ( ) => {
 				   <Typography 
 				    	className="grid-items"
 				    	style={{'color': '#E3242B',
-                      	'fontSize': '1.1rem'
+                      	'fontSize': '1.3rem'
                       	}}
 				    	>
 				    Image-Crawl
