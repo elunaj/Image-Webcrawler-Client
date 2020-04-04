@@ -40,7 +40,7 @@ const Navigation = ( ) => {
                       	'fontSize': '1.1rem'
                       	}}
 				    	>
-				    Image-Crawler
+				    Image-Crawl
 				    </Typography>
 				
 
