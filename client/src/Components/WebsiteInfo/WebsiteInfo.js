@@ -22,8 +22,8 @@ const WebsiteInfo = () => {
 			 		'margin': '0.5 0.5rem'
 			 	}}
 			 	variant="subtitle1">
-			 	Enter a valid web address to find all of the
-			 	downloadable images on a web page
+			 	Enter a full web address to find all of the
+			 	images on the web page
 			 	</Typography>
 					 
 			</div>
